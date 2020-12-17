@@ -4,10 +4,10 @@ metadata:
   name: auth-depl
 spec:
   replicas: 1
-  selector:
+  selector: # for all pods
     matchLabels:
       app: auth
-  template:
+  template: # for each pod
     metadata:
       labels:
         app: auth
@@ -17,6 +17,8 @@ spec:
           image: chelsejw/gittix-auth
 
 ---
+
+# CLUSTERIP SERVICE 
 
 apiVersion: v1
 kind: Service

@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-srv
+  annotations:
+    kubernetes.io/ingress.class: nginx # ingress will scan all config files and find one that matches this annotation
+    nginx.ingress.kubernetes.io/use-regex: 'true' #needed to use regex in paths
+spec:
+  rules:
+    - host: gittix.dev
+      http:
+        paths: # oredred from most specific to least
+          - path: /api/users/current
+            backend:
+              serviceName: auth-srv
+              servicePort: 3000
