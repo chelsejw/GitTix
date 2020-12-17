@@ -7,10 +7,10 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: 'true' #needed to use regex in paths
 spec:
   rules:
-    - host: gittix.dev
+    - host: gittix.com
       http:
         paths: # oredred from most specific to least
-          - path: /api/users/current
+          - path: /api/users/?(.*)
             backend:
               serviceName: auth-srv
               servicePort: 3000

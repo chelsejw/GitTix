@@ -1,9 +1,9 @@
-import { Router } from 'express'
+import express from 'express'
 
-const router = Router()
+const router = express.Router()
 
-router.get('/api/users/current', (_, res) => {
-  res.send('Current user!')
+router.get('/api/users/current', (req, res) => {
+  res.send('Hi there! This is current....')
 })
 
 export { router as currentUserRouter }
